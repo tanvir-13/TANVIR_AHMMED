@@ -1,0 +1,375 @@
+@import 'config';
+@import 'utilities';
+@import 'gallery';
+
+// General styles
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Dosis', sans-serif;
+	line-height: 1.6;
+	background-color: white;
+}
+
+h2, h3, h4 {
+	text-transform: uppercase;
+}
+
+img {
+	width: 100%;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: $dark-color;
+}
+
+// Header styles
+#header {
+	// Header Home styles
+	&-home {
+		color: white;
+		background: $bg-image no-repeat center right/cover;
+		height: 100vh;
+
+		// Logo Home
+		#logo {
+			width: 90px;
+			height: 90px;
+		}
+
+		// Header Content styles
+		#header-content {
+			text-align: center;
+			padding-top: 17%;
+
+			& > h1 {
+				font-size: 4rem;
+			}
+		}
+	}
+
+	// Header Inner styles
+	&-inner {
+		color: white;
+		background: $bg-image no-repeat 15% 30% /cover;
+		height: 6.5rem;
+		border-bottom: 3px solid $main-color;
+
+		// Logo Inner Pages
+		#logo {
+			width: 78px;
+			height: 78px;
+		}
+	}
+}
+
+// Main Nav styles
+#main-nav {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 1rem;
+
+	& > ul {
+		display: flex;
+	}
+
+	& > ul > li {
+		padding: 1rem 1.5rem;
+	}
+
+	& > ul > li > a {
+		text-transform: uppercase;
+		color: white;
+		padding-bottom: 0.5rem;
+		border-bottom: 3px solid transparent;
+		transition: border-color 0.5s ease-in;
+
+		&:hover {
+			border-color: $medium-color;
+		}
+
+		&.current {
+			border-color: $main-color;
+		}
+	}
+}
+
+// Home Sections styles
+#home {
+	& > #section-one {
+		& .specials {
+			margin-top: 3rem;
+			display: grid;
+			grid-gap: 1rem;
+			grid-template-columns: repeat(4, 1fr);
+
+			& i.fas {
+				color: $main-color;
+			}
+		}
+	}
+
+	& > #section-two {
+		& .stats {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+		
+			& > ul {
+				&:nth-of-type(odd) {
+					background-color: $light-color;
+				}
+
+				&:nth-of-type(even) {
+					background-color: $medium-color;
+				}
+
+				& li {
+					line-height: 2;
+
+					&.stats-title {
+						font-size: 1.5rem;
+					}
+
+					&.stats-number {
+						font-size: 2rem;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	& > #section-three {
+		& .process {
+			display: grid;
+			grid-gap: 1.5rem;
+			grid-template-columns: repeat(4, 1fr);
+			text-align: center;
+
+			&-icon {
+				position: relative;
+				width: 70px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				border-radius: 50%;
+				padding: 2rem;
+				color: set-color-by-lightness($dark-color);
+				background-color: $dark-color;
+				transition: all 0.5s ease-in;
+
+				&:hover {
+					width: 90px;
+					height: 90px;
+					line-height: 90px;
+					color: $dark-color;
+					background-color: $main-color;
+
+					& .process-step {
+						color: $light-color;
+						background-color: $dark-color;
+					}
+				}
+			}
+
+			&-step {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 16px;
+				height: 16px;
+				line-height: 16px;
+				text-align: center;
+				border-radius: 50%;
+				font-size: 26px;
+				padding: 1rem;
+				color: $dark-color;
+				background-color: $main-color;
+				transition: all 0.8s ease-in;
+			}
+		}
+	}
+}
+
+// About Sections styles
+#about {
+	& > #section-one {
+		& .infos {
+			display: grid;
+			grid-template-areas:
+			'bio-image bio-text bio-text'
+			'award-one award-two award-three';
+			grid-gap: 1.2rem;
+
+			// Grid Areas
+			& > .bio-image { grid-area: bio-image }
+			& > .bio-text {
+				grid-area: bio-text;
+				padding: 0.8rem;
+				border-left: 3px solid $main-color;
+			}
+			& > .award-one { grid-area: award-one }
+			& > .award-two { grid-area: award-two }
+			& > .award-three { grid-area: award-three }
+
+			// Awards Icon style
+			& > .award-one i.fas,
+			& > .award-two i.fas,
+			& > .award-three i.fas {
+				color: $main-color;
+			}
+		}
+	}
+
+	& > #section-two {
+		& .progress {
+			height: 20px;
+			border-radius: 5px;
+			background-color: $medium-color;
+			overflow: hidden;
+			margin-bottom: 0.6rem;
+
+			& > div {
+				height: 100%;
+				text-align: center;
+				color: white;
+				background-color: $main-color;
+			}
+		}
+	}
+
+	& > #section-three {
+		& .about-logos{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 2rem;
+
+			& > img {
+				width: 70%;
+			}
+		}
+	}
+
+	& > #section-four {
+		& .testimonials{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 0.6rem;
+
+			& > div > p {
+				border: 1px solid $medium-color;
+				border-radius: 5px;
+				padding: 0.5rem;
+			}
+
+			& > div > ul {
+				display: flex;
+				align-items: center;
+				margin-top: 1rem;
+
+				& > li > img {
+					width: 50px;
+					height: 50px;
+					border-radius: 50%;
+					margin-right: 0.5rem;
+				}
+			}
+		}
+	}
+}
+
+// Contact Sections styles
+#contact {
+	& > #section-one {
+		& .text-fields {
+			display: grid;
+			grid-template-areas:
+			'name email'
+			'subject phone'
+			'message message';
+			grid-gap: 1.2rem;
+			margin-bottom: 1.2rem;
+
+			.text-input {
+				padding: 0.5rem 1rem;
+			}
+
+			.text-input:focus {
+				border: 1.5px solid #ccc;
+			}
+
+			// Grid Areas
+			& > .name-input { grid-area: name; }
+			& > .email-input { grid-area: email; }
+			& > .subject-input { grid-area: subject; }
+			& > .phone-input { grid-area: phone; }
+			& > .message-input {
+				grid-area: message;
+				height: 120px;
+			}
+		}
+		& button[type="submit"] {
+			width: 50%;
+			font-size: 1.2rem;
+		}
+	}
+
+	& > #section-two {
+		& .contact-info {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			text-align: center;
+		}
+	}
+
+	& > #section-three {
+		& h1 {
+			font-size: 4rem;
+			text-align: center;
+		}
+	}
+}
+
+// Footer styles
+#main-footer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: white;
+	background-color: $dark-color;
+	height: 5rem;
+
+	& > p {
+		font-size: 1.1rem;
+	}
+
+	& > .social > a {
+		color: white;
+			& > i.fab {
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			border-radius: 50%;
+			border: 2px solid white;
+			margin-right: 1rem;
+			padding: 0.5rem;
+			transition: background-color 0.2s ease-in;
+
+			&:hover {
+				background-color: $main-color;
+			}
+		}
+	}
+}
+
+// Import Media Queries
+@import 'media';
